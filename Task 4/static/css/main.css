@@ -1,0 +1,45 @@
+.box{
+    font-size: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    outline: 3px solid black;
+    width:800px;
+    height:450px;
+    margin-bottom: 40px;
+    transition: background .5s;
+
+    /*background:blue;*/
+}
+
+.text-in-box{
+    text-align: center;
+    padding-top: 205px;
+}
+.buttons{
+    display: flex;
+}
+.button1{
+    background-color: #ff0000;
+    margin-left: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.button2{
+    background-color: green;
+    margin-left: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.button3{
+    background-color: blue;
+    margin-left: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.special-button{
+    margin-left: 60px;
+    font-size: 20px;
+}

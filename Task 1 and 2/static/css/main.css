@@ -1,0 +1,84 @@
+@media screen and (min-width: 901px){
+    .py{
+        font-size: 25px;
+    }
+    .adaptive-font{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .py{
+        font-size: 18px;
+    }
+    .adaptive-font {
+        font-size: 8px;
+    }
+}
+.py{
+    text-align: center;
+    font-weight: bold;
+    background-color: lightblue;
+}
+.header-1{
+    text-align: right;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.header-element{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.move-to-the-left{
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.move-to-the-right{
+    float: right;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.title{
+    margin-top: 10px;
+}
+.flex-container-1{
+    display: flex;
+}
+.flex-container-2{
+    display: flex;
+}
+.main-part{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.navigation{
+    margin-left: 5px;
+    margin-right: 5px;
+    border-right: 1px solid lightblue;
+}
+.red-line{
+    text-indent: 20px;
+}
+.down{
+    margin-bottom: 5px;
+}
+.card{
+    float: right;
+    outline: 1px solid gray;
+    border-radius: 10px;
+}
+.for-img{
+    text-align: center;
+}
+.for-th{
+    text-align: left;
+}
+.card2{
+    margin-left: 5px;
+    margin-right: 1000px;
+    outline: 1px solid gray;
+    border-radius: 10px;
+}
+
+
