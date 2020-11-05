@@ -5,6 +5,7 @@ https://docs.google.com/document/d/1vQ2rbJR1iDTWjBah_biSNMjQCZGhUrKNJy86EfU3em4/
 
 
 Short discription:
+
 Task 1 - Клон вики
 
 Task 2 - Медиа запросы
