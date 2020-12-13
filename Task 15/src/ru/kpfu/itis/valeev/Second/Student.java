@@ -63,9 +63,9 @@ public class Student implements Serializable{
                 '}';
     }
 
-    public static void main(String[] args) {
-        Student student = new Student("Bob", "male",LocalDate.parse("01.01.2001",DateTimeFormatter.ofPattern("dd.MM.yyyy")));
-        System.out.println(student.toString());
-    }
+//    public static void main(String[] args) {
+//        Student student = new Student("Bob", "male",LocalDate.parse("01.01.2001",DateTimeFormatter.ofPattern("dd.MM.yyyy")));
+//        System.out.println(student.toString());
+//    }
 
 }
