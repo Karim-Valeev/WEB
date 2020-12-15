@@ -3,6 +3,7 @@ package ru.kpfu.itis.valeev;
 import ru.kpfu.itis.valeev.listeners.MyMouseListener;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
@@ -17,6 +18,7 @@ public class SwingTest {
     private  static  boolean rotatedSqrDisplayed = false;
     private static JPanel formPanel = new JPanel();
     private static boolean formDisplayed = false;
+    private static Rotator r;
 
 
     public static void main(String[] args) {
@@ -59,20 +61,6 @@ public class SwingTest {
         about.add(exit);
         JMenuItem info = new JMenuItem("Info");
         info.addActionListener((ActionEvent e) -> {
-//            JDialog dialog = new JDialog(frame, "Modal window", true);
-//            dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-//            dialog.setSize(new Dimension(300, 300));
-//            dialog.setResizable(false);
-//            dialog.setVisible(true);
-//
-//            JLabel l = new JLabel();
-//            JTextArea text = new JTextArea("This is a modal window.\nReally helpful information, isn't it?");
-//            text.setEditable(false);
-//            l.setText("info");
-//            JPanel p = new JPanel();
-//            p.add(l);
-//            dialog.add(p);
-////            dialog.add(text);
             JOptionPane.showMessageDialog(frame, "You opened modal window!", "info", JOptionPane.INFORMATION_MESSAGE);
         });
         about.add(info);
@@ -90,20 +78,26 @@ public class SwingTest {
 //        Creating buttons on East
         JPanel buttons = new JPanel();
         buttons.setBackground(PURPLE);
-        buttons.setLayout(new GridLayout(3, 1, 5, 0));
-        frame.add(buttons, BorderLayout.EAST);
+        buttons.setLayout(new GridLayout(3, 1));
+        JPanel flow = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        flow.add(buttons);
+        frame.add(flow, BorderLayout.EAST);
 
         JButton square = new JButton("Square");
+        square.setPreferredSize(new Dimension(90,90));
         square.setBackground(PURPLE);
         buttons.add(square);
-        square.addMouseListener(new MouseAdapter() {
+        square.addMouseListener(new MouseAdapter()  {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(! sqrDisplayed){
+                    frame.remove(formPanel);
                     frame.add(sqr);
                     sqrDisplayed = true;
                 } else {
+                    frame.remove(formPanel);
+                    frame.remove(rotatedSqr);
                     frame.remove(sqr);
                     sqrDisplayed = false;
                 }
@@ -127,14 +121,15 @@ public class SwingTest {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if(! rotatedSqrDisplayed){
-                    frame.getContentPane().remove(sqr);
-                    frame.getContentPane().add(rotatedSqr);
                     rotatedSqrDisplayed = true;
                     System.out.println(rotatedSqrDisplayed);
-                    frame.repaint();
+                    r = new Rotator(frame, sqr,rotatedSqr);
+                    r.start();
                 } else {
-                    frame.getContentPane().remove(rotatedSqr);
-                    frame.getContentPane().add(sqr);
+                    r.interrupt();
+                    frame.remove(rotatedSqr);
+                    frame.remove(sqr);
+                    frame.remove(formPanel);
                     rotatedSqrDisplayed = false;
                     System.out.println(rotatedSqrDisplayed);
                 }
@@ -154,33 +149,41 @@ public class SwingTest {
         form.setBackground(PURPLE);
         buttons.add(form);
 
+        formPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel formContent = new JPanel(new GridLayout(3  , 1));
+        formContent.setBorder(BorderFactory.createLineBorder(PURPLE));
         JLabel name=new JLabel();
         name.setText(" Name :");
         JTextField txt=new JTextField();
-        txt.setText("Karim");
+        txt.setSize(20,20);
         JLabel pasLabel = new JLabel("Password");
         JPasswordField ps=new JPasswordField(8);
         JButton submit =new JButton();
         submit.setText("Submit");
-        formPanel.add(name);
-        formPanel.add(txt);
-        formPanel.add(pasLabel);
-        formPanel.add(ps);
-        formPanel.add(submit);
+        formContent.add(name);
+        formContent.add(txt);
+        formContent.add(pasLabel);
+        formContent.add(ps);
+        formContent.add(submit);
+        formPanel.add(formContent);
 
         form.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 if (!formDisplayed){
-                    frame.add(formPanel, BorderLayout.CENTER);
+                    frame.remove(sqr);
+                    frame.remove(rotatedSqr);
+                    frame.add(formPanel);
                     formDisplayed = true;
-                    frame.revalidate();
                 } else {
+                    frame.remove(sqr);
+                    frame.remove(rotatedSqr);
                     frame.remove(formPanel);
                     formDisplayed = false;
-                    frame.revalidate();
                 }
+                frame.repaint();
+                frame.revalidate();
             }
 
             @Override
@@ -190,14 +193,40 @@ public class SwingTest {
             }
         });
 
-
 //        Adding event listeners
         frame.addMouseListener(new MyMouseListener(eventLabel));
-
 
 //        Necessary for colors
         frame.revalidate();
 
     }
+
+//    private static class Rotator extends Thread{
+//
+//        JFrame frame;
+//        JPanel sqr;
+//        JPanel rotatedSqr;
+//
+//        public Rotator(JFrame frame,JPanel sqr, JPanel rotatedSqr ){
+//            this.frame = frame;
+//            this.sqr = sqr;
+//            this.rotatedSqr = rotatedSqr;
+//        }
+//
+//        @Override
+//        public void run() {
+//            frame.add(rotatedSqr);
+//            while(true){
+//                rotatedSqr.repaint();
+//                frame.repaint();
+//                frame.revalidate();
+//                try {
+//                    Thread.sleep(50);
+//                } catch (InterruptedException e) {
+//                    System.out.println("Rotation ended");
+//                }
+//            }
+//        }
+//    }
 
 }
