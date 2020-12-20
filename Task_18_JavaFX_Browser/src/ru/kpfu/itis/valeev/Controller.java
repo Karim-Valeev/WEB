@@ -66,6 +66,7 @@ public class Controller implements Initializable {
         if(cursor-1>=0){
             cursor--;
             link = history.get(cursor);
+            address.setText(link);
             engine.load(link);
         }
     }
@@ -75,6 +76,7 @@ public class Controller implements Initializable {
         if(cursor+1<history.size()){
             cursor++;
             link = history.get(cursor);
+            address.setText(link);
             engine.load(link);
         }
     }
