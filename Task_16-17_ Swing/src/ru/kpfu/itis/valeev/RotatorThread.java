@@ -2,13 +2,13 @@ package ru.kpfu.itis.valeev;
 
 import javax.swing.*;
 
-public class Rotator extends Thread{
+public class RotatorThread extends Thread{
 
-    JFrame frame;
-    JPanel sqr;
-    JPanel rotatedSqr;
+    private JFrame frame;
+    private JPanel sqr;
+    private JPanel rotatedSqr;
 
-    public Rotator(JFrame frame,JPanel sqr, JPanel rotatedSqr ){
+    public RotatorThread(JFrame frame, JPanel sqr, JPanel rotatedSqr ){
         this.frame = frame;
         this.sqr = sqr;
         this.rotatedSqr = rotatedSqr;
@@ -19,7 +19,7 @@ public class Rotator extends Thread{
         frame.add(rotatedSqr);
         while(true){
             rotatedSqr.repaint();
-            frame.repaint();
+//            frame.repaint();
             frame.revalidate();
             try {
                 Thread.sleep(50);

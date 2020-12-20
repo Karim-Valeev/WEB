@@ -17,4 +17,11 @@ public class RotatedSquare extends JPanel {
         g2d.fill(rect2);
     }
 
+    public double getTheta() {
+        return theta;
+    }
+
+    public void setTheta(double theta) {
+        this.theta = theta;
+    }
 }

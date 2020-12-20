@@ -3,7 +3,6 @@ package ru.kpfu.itis.valeev;
 import ru.kpfu.itis.valeev.listeners.MyMouseListener;
 
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
@@ -14,11 +13,11 @@ public class SwingTest {
 
     private static JPanel sqr = new Square();
     private static boolean sqrDisplayed = false;
-    private static JPanel rotatedSqr = new RotatedSquare();
-    private  static  boolean rotatedSqrDisplayed = false;
+    private static RotatedSquare rotatedSqr = new RotatedSquare();
+    private static boolean rotatedSqrDisplayed = false;
     private static JPanel formPanel = new JPanel();
     private static boolean formDisplayed = false;
-    private static Rotator r;
+//    private static RotatorThread r;
 
 
     public static void main(String[] args) {
@@ -114,6 +113,7 @@ public class SwingTest {
         });
 
         JButton rotate = new JButton("Rotate");
+        RotatorThread r = new RotatorThread(frame, sqr,rotatedSqr);
         rotate.setBackground(PURPLE);
         buttons.add(rotate);
         rotate.addMouseListener(new MouseAdapter() {
@@ -123,10 +123,11 @@ public class SwingTest {
                 if(! rotatedSqrDisplayed){
                     rotatedSqrDisplayed = true;
                     System.out.println(rotatedSqrDisplayed);
-                    r = new Rotator(frame, sqr,rotatedSqr);
-                    r.start();
+                    frame.add(rotatedSqr);
+                    if(! r.isAlive()){
+                        r.start();
+                    }
                 } else {
-                    r.interrupt();
                     frame.remove(rotatedSqr);
                     frame.remove(sqr);
                     frame.remove(formPanel);
