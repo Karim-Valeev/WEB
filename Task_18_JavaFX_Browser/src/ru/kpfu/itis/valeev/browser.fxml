@@ -1,0 +1,28 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.web.WebView?>
+<?import java.lang.String?>
+<BorderPane fx:controller="ru.kpfu.itis.valeev.Controller"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+
+    <top>
+        <ToolBar style="-fx-background-color: mediumslateblue;"
+                BorderPane.alignment="CENTER">
+            <Button text="back" style="-fx-font-size: 20" onAction="#back"/>
+            <Button text="forward" style="-fx-font-size: 20" onAction="#forward"/>
+            <Button text="search"  style="-fx-font-size: 20" onAction="#search" />
+            <TextField fx:id="address" prefHeight="35" prefWidth="700"/>
+            <ComboBox fx:id="historyDropDown" style="-fx-font-size: 20">
+                <value>
+                    <String fx:value="History" />
+                </value>
+            </ComboBox>
+        </ToolBar>
+    </top>
+    <center>
+        <WebView fx:id="webView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER"/>
+    </center>
+    <bottom>
+        <Label fx:id="status" style="-fx-font-size: 15">status</Label>
+    </bottom>
+</BorderPane>
