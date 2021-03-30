@@ -12,6 +12,8 @@
     <title>Title</title>
 </head>
 <body>
-
+<div style="color: greenyellow; text-align: center; margin: 20px 20px 20px 20px; font-size: 40px">
+    Congrats! ${user.login}
+</div>
 </body>
 </html>

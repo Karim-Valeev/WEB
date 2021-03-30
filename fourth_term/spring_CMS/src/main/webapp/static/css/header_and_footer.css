@@ -1,0 +1,46 @@
+.nav{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    /*margin: 30px 30px 30px 30px;*/
+    border: blue 3px solid;
+}
+.pic{
+    margin-left: 10px;
+}
+.main-title-link{
+    color: black;
+    text-decoration: none;
+}
+.main-title-link:hover{
+    color: black;
+}
+
+.profile{
+    font-size: 20px;
+}
+.center{
+    text-align: center;
+    font-size: 40px;
+}
+.footer{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    /*margin: 30px 30px 30px 30px;*/
+    border: blue 3px solid;
+    margin-top: 50px;
+    position: fixed;
+    width: 100%;
+    left: 0; bottom: 0;
+}
+.img-center{
+    margin-left: 100px;
+    margin-right: 465px;
+}

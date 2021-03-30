@@ -1,0 +1,40 @@
+.test{
+    text-align: center;
+    color: #ff00ce;
+    padding-top: 20px;
+}
+
+.post-list{
+    margin: 20px 20px 20px 20px;
+}
+
+
+.header{
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+.header-item{
+    font-size: 15px;
+    margin: 5px 5px 5px 5px;
+    border: blue solid 3px;
+}
+
+.error{
+    color: red;
+}
+
+.column{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+
+}
+
+.column-posts{
+    margin-left: 60px;
+}
+
+.column-categories{
+    margin-left: 100px;
+}

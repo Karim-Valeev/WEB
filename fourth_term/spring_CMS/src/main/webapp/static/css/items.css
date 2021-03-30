@@ -1,0 +1,52 @@
+.categories{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /*overflow: auto;*/
+    /*width: 100%;*/
+    /*height: auto;*/
+    border: 1px solid green;
+}
+
+.item{
+    padding: 2px 2px 2px 2px;
+    margin: 20px 20px 20px 20px;
+    font-size: 20px;
+    border: transparent solid 3px;
+}
+.item:hover {
+    border-color: #65994C; /* Цвет рамки */
+    border-radius: 10px;
+}
+.poz{
+    position: fixed;
+    bottom: 80px;
+    right: 80px;
+}
+.basket{
+    font-size: 40px;
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    color: green;
+    /*position: fixed;*/
+    /*bottom: 80px;*/
+    /*right: 80px;*/
+}
+.lil-basket{
+    font-size: 18px;
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+    color: green;
+}
+.filter{
+    font-size: 13px;
+    width: 200px;
+    text-align: center;
+    margin-top: 10px;
+}
